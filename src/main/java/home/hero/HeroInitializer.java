@@ -9,8 +9,11 @@ public final class HeroInitializer {
 
     private static final int START_LEVEL = 1;
     private static final int START_EXP = 0;
-    private static final int START_ATTACK_DAMAGE = 5;
+    private static final int START_LOWEST_DAMAGE = 5;
+    private static final int START_APPER_DAMAGE = 10;
     private static final int START_HEALTH = 80;
+    private static final int START_ARMOR = 10;
+    private static final int START_MANA = 50;
     private static final int START_ATTACK_SPEED = 30;
 
     public static void init(Scanner scanner, int tryCounter) {
@@ -25,8 +28,11 @@ public final class HeroInitializer {
         Hero hero = Hero.getInstance();
         hero.setLevel(START_LEVEL);
         hero.setExp(START_EXP);
-        hero.setAtackDamage(START_ATTACK_DAMAGE);
+        hero.setLowestDamage(START_LOWEST_DAMAGE);
+        hero.setApperDamage(START_APPER_DAMAGE);
         hero.setHealth(START_HEALTH);
+        hero.setArmor(START_ARMOR);
+        hero.setMana(START_MANA);
         hero.setAtackSpeed(START_ATTACK_SPEED);
         tryCounter = 0;
     }
@@ -48,9 +54,12 @@ public final class HeroInitializer {
     }
 
     private static void chouseType(Scanner scanner, int tryCounter) {
-        System.out.println("Chouse your type, if you wont chouse:\n" + HeroType.WARRIOR.getType() + " pres "
-                + HeroType.WARRIOR.getTypeNumber() + "\n" + HeroType.ARCHER.getType() + " press "
-                + HeroType.ARCHER.getTypeNumber() + "\n" + HeroType.MAG.getType() + " press "
+        System.out.println("Chouse your type, if you wont chouse:\n"
+                + HeroType.WARRIOR.getType() + " pres "
+                + HeroType.WARRIOR.getTypeNumber() + "\n"
+                + HeroType.ARCHER.getType() + " press "
+                + HeroType.ARCHER.getTypeNumber() + "\n"
+                + HeroType.MAG.getType() + " press "
                 + HeroType.MAG.getTypeNumber());
 
         int typeNumber = scanner.nextInt();
@@ -58,7 +67,8 @@ public final class HeroInitializer {
 
         if (type == null) {
             while (tryCounter < 3) {
-                System.out.println("You press wrong number: " + typeNumber + "\nPlyase try againe. You have try: "
+                System.out.println("You press wrong number: " + typeNumber
+                        + "\nPlyase try againe. You have try: "
                         + (3 - tryCounter));
                 System.out.println();
                 ++tryCounter;
