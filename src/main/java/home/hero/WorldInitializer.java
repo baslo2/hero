@@ -22,7 +22,8 @@ public final class WorldInitializer {
         choseWay(scanner, npcs, tryCounter);
     }
 
-    private static void choseWay(Scanner scanner, List<NpcWithActivity> npcs, int tryCounter) {
+    public static void choseWay(Scanner scanner, List<NpcWithActivity> npcs,
+            int tryCounter) {
         System.out.println("Press the number to choose the way:");
         for (int index = 0; index < npcs.size(); index++) {
             int number = index + 1;
@@ -63,16 +64,18 @@ public final class WorldInitializer {
                 break;
 
             case SHOW_MAP:
-                WorldInitializer.movementMechanics(scanner);
+                WorldInitializer.movementMechanics(scanner, npcs, tryCounter);
                 break;
         }
     }
 
-    private static void movementMechanics(Scanner scanner) {
+    private static void movementMechanics(Scanner scanner,
+            List<NpcWithActivity> npcs, int tryCounter) {
         while (true) {
             BattleArea.showMap();
-            System.out.println("press 'w', 'a', 's', 'd' to move your hero:");
-            Hero.move(scanner);
+            System.out.println(
+                    "press 'w', 'a', 's', 'd' to move your hero or 'q' to go village:");
+            Hero.move(scanner, npcs, tryCounter);
         }
     }
 }
