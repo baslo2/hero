@@ -16,7 +16,7 @@ public final class Hero extends AbstractPersonage {
     private static final String MOVE_DOWN = "s";
     private static final String MOVE_LEFT = "a";
     private static final String MOVE_RIGHT = "d";
-    private static final String QUETE = "q";
+    private static final String QUIT = "q";
 
     // where is stay hero in BattleArea(start position x=9;y=0)
     private int x = 9;
@@ -82,7 +82,7 @@ public final class Hero extends AbstractPersonage {
                 hero.setY(hero.getY() + 1);
                 break;
             }
-            case Hero.QUETE: {
+            case Hero.QUIT: {
                 WorldInitializer.choseWay(scanner, npcs, tryCounter);
                 break;
             }
